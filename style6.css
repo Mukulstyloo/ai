@@ -1,0 +1,393 @@
+/* Color Palette:
+   Primary Light BG: #f8f8f8 (Near White)
+   Secondary Light BG: #f0f0f0 (Soft Light Gray) - Soothing Contrast
+   Accent/Teal: #66bb6a (Calm Seafoam Green)
+   Highlight/Gold: #ffc107 (Warm Amber)
+   Text: #333333 (Soft Dark Gray)
+*/
+
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    background-color: #f8f8f8; 
+    color: #333333;
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* --- Global Styles --- */
+h2 {
+    font-family: 'Playfair Display', serif; /* Elegant Header Font */
+    font-size: 2.5em;
+    color: #333333; 
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+section {
+    padding: 80px 50px;
+}
+
+/* Accent Section (Slightly Darker Light BG for contrast) */
+.accent-section {
+    background-color: #f0f0f0;
+}
+.lightest-section {
+    background-color: white;
+}
+
+/* Buttons */
+.btn-primary {
+    display: inline-block;
+    background-color: #66bb6a; /* Teal/Green */
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 10px rgba(102, 187, 106, 0.4);
+}
+.btn-primary:hover {
+    background-color: #4CAF50;
+    transform: translateY(-2px);
+}
+.btn-secondary {
+    background: none;
+    border: 2px solid #ffc107; /* Gold border */
+    color: #333333;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+}
+.btn-secondary:hover {
+    background-color: #ffc107;
+    color: white;
+}
+
+
+/* --- 1. Navigation Bar --- */
+.navbar {
+    background-color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    margin-left: 0%;
+}
+
+.logo {
+    color: #66bb6a;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links a {
+    color: #333333;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: 400;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+/* Navigation Hover Effect */
+.nav-links a:hover {
+    color: #66bb6a;
+    border-bottom: 2px solid #ffc107; /* Gold accent underline */
+}
+
+/* Search Bar Styling */
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+.search-container:focus-within {
+    box-shadow: 0 0 5px rgba(102, 187, 106, 0.7);
+}
+
+.search-input {
+    padding: 8px 15px;
+    border: none;
+    background-color: white;
+    color: #333333;
+    width: 150px;
+}
+.search-input:focus {
+    outline: none;
+}
+
+.search-btn {
+    padding: 8px 12px;
+    background-color: #f0f0f0;
+    color: #66bb6a;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.search-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* --- 2. Image Slider --- */
+.slider-container {
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+.slider {
+    display: flex;
+    width: 400%; 
+    height: 100%;
+    transition: transform 0.8s ease-in-out;
+}
+.slide {
+    width: 25%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- 3. Card Section --- */
+.card-section {
+    background-color: #f8f8f8;
+    text-align: center;
+}
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 300px;
+    text-align: left;
+    transition: transform 0.4s, box-shadow 0.4s;
+    opacity: 0; 
+    transform: translateY(20px);
+}
+
+/* Card Hover Effect (Subtle Lift and Shadow) */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 0 5px #ffc107; /* Gold highlight */
+    border-color: #66bb6a;
+}
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+.card-details {
+    padding: 20px;
+}
+.card-details h3 {
+    color: #66bb6a; /* Teal/Green */
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3em;
+    margin-top: 0;
+}
+
+/* CSS Card Animation */
+@keyframes fadeInUp {
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+.card.visible {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+/* --- 4. Two Beautiful Pages --- */
+
+/* Philosophy Page (Accent Section) */
+.philosophy-page {
+    border-top: 5px solid #ffc107;
+}
+.philosophy-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.philosophy-image {
+    flex: 1;
+    animation: imageFadeIn 1.5s ease-out;
+}
+.philosophy-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.philosophy-text {
+    flex: 1;
+    text-align: left;
+}
+.philosophy-text h2 {
+    text-align: left;
+    color: #66bb6a;
+}
+@keyframes imageFadeIn {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Testimony Page (Lightest Section) */
+.testimony-page {
+    text-align: center;
+    padding: 100px 50px;
+}
+.testimony-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.quote-icon {
+    font-size: 3em;
+    color: #ffc107;
+    margin-bottom: 20px;
+    display: block;
+}
+.testimonial-text {
+    font-size: 1.5em;
+    font-style: italic;
+    color: #555555;
+    margin-bottom: 25px;
+}
+.client-name {
+    font-weight: 700;
+    color: #66bb6a;
+    margin-bottom: 30px;
+}
+
+
+/* --- 5. Business Description Section --- */
+.about-section {
+    background: #f8f8f8;
+    text-align: center;
+    padding: 100px 10%;
+}
+.about-section .attractive-font {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8em;
+    font-weight: 700;
+    color: #333333;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    line-height: 1.2;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    border-right: 3px solid #66bb6a; /* Teal cursor */
+}
+
+/* Text Typing Animation */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+.animate-text {
+    animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+}
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #66bb6a; } 
+}
+
+/* --- 7. Chatbot Component --- */
+.chatbot-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 2000;
+}
+.chatbot-toggle {
+    background-color: #ffc107; /* Gold accent */
+    color: white;
+    width: 60px; height: 60px; border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.7);
+    animation: togglePulse 1.5s infinite alternate;
+}
+@keyframes togglePulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); box-shadow: 0 0 20px rgba(255, 193, 7, 0.9); }
+}
+.chatbot-window {
+    width: 350px; height: 450px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    display: none; flex-direction: column;
+    position: absolute; bottom: 75px; right: 0;
+}
+.chatbot-header { background-color: #66bb6a; color: white; padding: 15px; }
+.bot-message { background-color: #e8f5e9; color: #333; } /* Light green background */
+.user-message { background-color: #ffecb3; color: #333; } /* Light gold background */
+.chatbot-messages { flex-grow: 1; padding: 15px; overflow-y: auto; }
+.message { padding: 8px 12px; border-radius: 15px; margin-bottom: 10px; max-width: 80%; }
+.chatbot-input input { background-color: #f8f8f8; border: 1px solid #ccc; color: #333; }
+.chatbot-input button { background-color: #66bb6a; color: white; }
+
+/* --- 6. Footer (ACCENT/SLIGHTLY DARKER LIGHT SECTION) --- */
+.footer {
+    background-color: #f0f0f0; 
+    color: #555555;
+    padding: 50px 50px 20px;
+    border-top: 2px solid #e0e0e0;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    text-align: left;
+}
+.footer-col h3 {
+    color: #66bb6a;
+    border-bottom: 2px solid #ffc107;
+}
+.footer-col i {
+    color: #ffc107;
+}
+.copyright {
+    color: #999;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 15px;
+    text-align: center;
+}
+
+/* Media Queries */
+@media (max-width: 900px) {
+    .navbar { flex-direction: column; align-items: flex-start; }
+    .nav-links { margin-top: 10px; }
+    .search-container { margin-top: 10px; width: 100%; }
+    .search-input { width: 70%; }
+    
+    .philosophy-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .philosophy-text h2 { text-align: center; }
+}
